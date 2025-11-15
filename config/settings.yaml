@@ -1,0 +1,103 @@
+app:
+  debug: false
+  log_level: INFO
+  name: Smart Behavior Auth System
+  version: 1.0.0
+authentication:
+  actions:
+    high_confidence: continue
+    low_confidence: challenge
+    medium_confidence: monitor
+    very_low_confidence: logout
+  challenges:
+    lockout_duration: 300
+    max_attempts: 3
+    types:
+    - pin
+    - biometric
+    - sms
+  confidence_levels:
+    high: 0.9
+    low: 0.5
+    medium: 0.7
+biometrics:
+  keystroke:
+    features:
+    - dwell_time
+    - flight_time
+    - typing_speed
+    - rhythm_patterns
+    sample_window: 50
+  mouse:
+    features:
+    - velocity
+    - acceleration
+    - click_intervals
+    - movement_smoothness
+    sample_window: 100
+device:
+  fingerprinting:
+    components:
+    - hardware_id
+    - screen_resolution
+    - timezone
+    - network_interfaces
+    enabled: true
+  geolocation:
+    enabled: true
+    max_distance_km: 100
+    vpn_detection: true
+  time_patterns:
+    enable_analysis: true
+    unusual_hours_threshold: 0.1
+logging:
+  backup_count: 5
+  file: logs/behavior_auth.log
+  format: '%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+  level: INFO
+  max_size_mb: 10
+ml:
+  anomaly_detection:
+    adaptive_threshold: true
+    contamination: 0.1
+    threshold: 0.7
+  features:
+    overlap: 0.5
+    window_size: 100
+  models:
+    anomaly_detector: isolation_forest
+    primary: random_forest
+  training:
+    min_samples: 1000
+    retrain_interval_hours: 24
+    validation_split: 0.2
+security:
+  encryption:
+    algorithm: AES-256-GCM
+    iterations: 100000
+    key_derivation: PBKDF2
+    salt_length: 32
+  privacy:
+    enable_differential_privacy: true
+    hash_raw_inputs: true
+    noise_epsilon: 0.1
+  session:
+    idle_timeout_minutes: 15
+    max_concurrent_sessions: 3
+    timeout_minutes: 30
+    token_refresh_interval: 5
+service:
+  monitoring:
+    batch_size: 50
+    interval_seconds: 1
+    max_memory_mb: 100
+  notifications:
+    enabled: true
+    types:
+    - security_alert
+    - anomaly_detected
+    - session_timeout
+  storage:
+    backup_interval_hours: 6
+    local_db: data/behavior.db
+    retention_days: 30

@@ -1,0 +1,32 @@
+# Node.js dependencies
+node_modules/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*$
+
+# Environment files
+.env
+.venv
+
+# IDE files
+.vscode/
+.idea/
+
+# OS generated files
+Thumbs.db
+.DS_Store
+
+# Build outputs
+build/
+dist/
+
+# Log files
+*.log
+
+# Database files (uncomment if you want to exclude)
+# *.db

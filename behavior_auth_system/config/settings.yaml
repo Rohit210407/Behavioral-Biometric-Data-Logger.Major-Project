@@ -1,0 +1,196 @@
+# Smart Behavior-Based Authentication System Configuration
+
+# Application Settings
+app:
+  name: "Smart Behavior Auth System"
+  version: "1.0.0"
+  debug: false
+  log_level: "INFO"
+
+# Security Configuration
+security:
+  encryption:
+    algorithm: "AES-256-GCM"
+    key_derivation: "PBKDF2"
+    iterations: 100000
+    salt_length: 32
+  
+  session:
+    timeout_minutes: 30
+    idle_timeout_minutes: 15
+    max_concurrent_sessions: 3
+    token_refresh_interval: 5
+  
+  privacy:
+    enable_differential_privacy: true
+    noise_epsilon: 0.1
+    hash_raw_inputs: true
+  
+  # Enhanced Security Features
+  screen_lock:
+    enabled: true
+    auto_lock_on_threat: true
+    unlock_methods: ["pin", "biometric"]
+    max_unlock_attempts: 3
+    lockout_duration_minutes: 5
+  
+  fast_typing_detection:
+    enabled: true
+    words_per_minute_threshold: 200  # Lowered from 300 to 200 for quicker detection
+    monitoring_window_seconds: 30    # Reduced from 60 to 30 for quicker response
+    consecutive_alerts_to_lock: 1    # Reduced from 2 to 1 for immediate response
+  
+  tab_switching_detection:
+    enabled: true
+    switches_per_minute_threshold: 10  # Lowered from 20 to 10 for higher sensitivity
+    monitoring_window_seconds: 15      # Reduced from 30 to 15 for quicker detection
+    suspicious_pattern_threshold: 2    # Lowered from 5 to 2 for quicker response
+  
+  biometric_monitoring:
+    camera_enabled: true
+    microphone_enabled: true
+    face_recognition: true
+    voice_analysis: true
+    continuous_monitoring: true
+
+# Behavioral Biometrics Settings
+biometrics:
+  keystroke:
+    sample_window: 25          # Reduced from 50 to 25 for quicker analysis
+    features:
+      - "dwell_time"           # How long key is held
+      - "flight_time"          # Time between key releases
+      - "typing_speed"         # Overall typing speed
+      - "rhythm_patterns"      # Typing rhythm consistency
+    
+  mouse:
+    sample_window: 50          # Reduced from 100 to 50 for quicker analysis
+    features:
+      - "velocity"             # Mouse movement speed
+      - "acceleration"         # Mouse acceleration patterns
+      - "click_intervals"      # Time between clicks
+      - "movement_smoothness"  # Trajectory smoothness
+      - "pressure_patterns"    # Click pressure (if available)
+
+# Machine Learning Configuration
+ml:
+  models:
+    primary: "random_forest"
+    anomaly_detector: "isolation_forest"
+    
+  training:
+    min_samples: 500           # Reduced from 1000 to 500 for faster training
+    retrain_interval_hours: 12 # Reduced from 24 to 12 for more frequent updates
+    validation_split: 0.3      # Increased from 0.2 to 0.3 for better validation
+    
+  anomaly_detection:
+    contamination: 0.4         # Increased from 0.3 to 0.4 for higher sensitivity
+    threshold: 0.4             # Lowered from 0.5 to 0.4 for quicker anomaly detection
+    adaptive_threshold: true   # Enable adaptive thresholds
+    
+  features:
+    window_size: 100           # Feature extraction window
+    overlap: 0.5               # Window overlap ratio
+
+# Authentication Thresholds
+authentication:
+  # User Registration & Login
+  user_management:
+    email_required: true
+    pin_length: 6
+    pin_complexity: true  # Require numbers and special characters
+    email_verification: true
+    registration_required: true
+  
+  confidence_levels:
+    high: 0.95                 # Increased from 0.9 to 0.95 for stricter high confidence
+    medium: 0.8                # Increased from 0.7 to 0.8 for stricter medium confidence
+    low: 0.6                   # Increased from 0.5 to 0.6 for stricter low confidence
+    
+  actions:
+    high_confidence: "continue"
+    medium_confidence: "monitor"
+    low_confidence: "challenge"
+    very_low_confidence: "lock_screen"
+    
+  challenges:
+    types: ["pin", "biometric", "email_otp"]
+    max_attempts: 3
+    lockout_duration: 300      # 5 minutes
+  
+  # Enhanced Threat Response
+  threat_response:
+    fast_typing_action: "lock_screen"  # immediate lock on fast typing
+    tab_switching_action: "lock_screen"  # immediate lock on excessive tab switching
+    suspicious_behavior_action: "challenge"
+    camera_monitoring: true
+    microphone_monitoring: true
+
+# Device Context Settings
+device:
+  fingerprinting:
+    enabled: true
+    components:
+      - "hardware_id"
+      - "screen_resolution"
+      - "timezone"
+      - "installed_software"
+      - "network_interfaces"
+      
+  geolocation:
+    enabled: true
+    max_distance_km: 100       # Max distance change allowed
+    vpn_detection: true
+    
+  time_patterns:
+    enable_analysis: true
+    unusual_hours_threshold: 0.1  # Probability threshold
+
+# Background Service Settings
+service:
+  monitoring:
+    interval_seconds: 0.5      # Reduced from 1 to 0.5 for more frequent monitoring
+    batch_size: 25             # Reduced from 50 to 25 for more responsive detection
+    max_memory_mb: 100         # Memory usage limit
+    
+  storage:
+    local_db: "data/behavior.db"
+    backup_interval_hours: 6
+    retention_days: 30
+    
+  notifications:
+    enabled: true
+    types: ["security_alert", "anomaly_detected", "session_timeout"]
+
+# Database Configuration
+database:
+  type: "sqlite"
+  path: "data/behavior_auth.db"
+  backup_path: "data/backups/"
+  encryption: true
+  
+# Logging Configuration
+logging:
+  level: "INFO"
+  file: "logs/behavior_auth.log"
+  max_size_mb: 10
+  backup_count: 5
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  
+  # Security logging
+  security_log: "logs/security.log"
+  audit_log: "logs/audit.log"
+
+# Network Settings
+network:
+  api_endpoint: "https://api.behaviorauth.local"
+  timeout_seconds: 30
+  retry_attempts: 3
+  ssl_verify: true
+
+# Development Settings (only for debug mode)
+development:
+  mock_data: false
+  simulate_attacks: false
+  test_mode: false
+  data_visualization: false

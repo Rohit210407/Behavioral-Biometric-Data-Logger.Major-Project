@@ -1,0 +1,334 @@
+.baseline-training-container {
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.baseline-header {
+  text-align: center;
+  margin-bottom: 30px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+  /* Focus indicator for accessibility */
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+}
+
+.baseline-header:focus-within {
+  outline: 2px solid #007bff;
+  outline-offset: 2px;
+}
+
+.baseline-header h1 {
+  margin: 0 0 10px 0;
+  color: #282c34;
+  font-size: 2rem;
+}
+
+.baseline-header p {
+  font-size: 1.1rem;
+  color: #6c757d;
+  margin: 0;
+}
+
+.training-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 25px;
+}
+
+.card {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  padding: 25px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  /* Focus indicator for accessibility */
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+}
+
+.card:focus-within {
+  outline: 2px solid #007bff;
+  outline-offset: 2px;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+}
+
+.card h2 {
+  margin-top: 0;
+  color: #282c34;
+  border-bottom: 3px solid #61dafb;
+  padding-bottom: 15px;
+  font-size: 1.5rem;
+}
+
+/* Progress Card */
+.progress-card {
+  grid-column: 1 / -1;
+}
+
+.progress-info {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.time-display {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #f8f9fa;
+  padding: 15px;
+  border-radius: 8px;
+}
+
+.time-label {
+  font-weight: 600;
+  color: #495057;
+}
+
+.time-value {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #007bff;
+}
+
+.progress-container {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.progress-bar {
+  flex: 1;
+  height: 25px;
+  background-color: #e9ecef;
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+  /* Ensure progress bar is accessible */
+  min-width: 200px;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #007bff, #667eea);
+  transition: width 0.5s ease;
+  border-radius: 12px;
+}
+
+.progress-text {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #495057;
+  min-width: 50px;
+  text-align: right;
+}
+
+.status-message {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 15px;
+  background: #e3f2fd;
+  border-radius: 8px;
+  border-left: 4px solid #2196f3;
+}
+
+.status-icon {
+  font-size: 1.5rem;
+}
+
+.status-text {
+  font-weight: 500;
+  color: #1976d2;
+  flex: 1;
+}
+
+/* Metrics Card */
+.metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 20px;
+}
+
+.metric-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  background: #f8f9fa;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+  /* Focus indicator for accessibility */
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+}
+
+.metric-item:focus-within {
+  outline: 2px solid #007bff;
+  outline-offset: 2px;
+}
+
+.metric-item:hover {
+  background: #e9ecef;
+  transform: translateY(-3px);
+}
+
+.metric-icon {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.metric-value {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #007bff;
+  margin-bottom: 5px;
+}
+
+.metric-label {
+  font-size: 0.9rem;
+  color: #6c757d;
+  text-align: center;
+}
+
+/* Instructions Card */
+.instructions-content {
+  display: grid;
+  gap: 20px;
+}
+
+.instruction-step {
+  display: flex;
+  gap: 15px;
+  padding: 15px;
+  background: #f8f9fa;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+  /* Focus indicator for accessibility */
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+}
+
+.instruction-step:focus-within {
+  outline: 2px solid #007bff;
+  outline-offset: 2px;
+}
+
+.instruction-step:hover {
+  background: #e9ecef;
+}
+
+.step-number {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  background: #007bff;
+  color: white;
+  border-radius: 50%;
+  font-weight: bold;
+  flex-shrink: 0;
+}
+
+.step-content h3 {
+  margin: 0 0 5px 0;
+  color: #495057;
+}
+
+.step-content p {
+  margin: 0;
+  color: #6c757d;
+  font-size: 0.95rem;
+}
+
+/* Completion Card */
+.completion-card {
+  grid-column: 1 / -1;
+  text-align: center;
+  background: linear-gradient(135deg, #d4edda, #f8fff9);
+  border: 1px solid #c3e6cb;
+}
+
+.completion-card h2 {
+  border-color: #28a745;
+  color: #155724;
+}
+
+.completion-message {
+  font-size: 1.1rem;
+  color: #155724;
+  margin-bottom: 20px;
+  padding: 15px;
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 8px;
+}
+
+.redirect-message {
+  font-size: 0.9rem;
+  color: #6c757d;
+  font-style: italic;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .training-content {
+    grid-template-columns: 1fr;
+  }
+  
+  .progress-container {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+  
+  .metrics-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .baseline-header {
+    padding: 20px;
+  }
+  
+  .baseline-header h1 {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .baseline-training-container {
+    padding: 10px;
+  }
+  
+  .card {
+    padding: 20px;
+  }
+  
+  .metrics-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .metric-value {
+    font-size: 1.5rem;
+  }
+  
+  /* Ensure adequate touch targets on mobile */
+  .metric-item,
+  .instruction-step,
+  .step-number {
+    min-height: 44px; /* Minimum touch target size */
+  }
+  
+  .step-number {
+    width: 44px;
+    height: 44px;
+  }
+}

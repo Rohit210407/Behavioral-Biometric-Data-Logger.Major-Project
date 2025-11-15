@@ -1,0 +1,41 @@
+# Core Dependencies
+pynput==1.7.6                # Keyboard and mouse monitoring
+psutil==5.9.8                # System and process utilities
+cryptography==41.0.7        # Encryption and security
+pyotp==2.9.0                # TOTP/HOTP authentication
+
+# Machine Learning
+scikit-learn==1.3.2         # ML algorithms
+xgboost==2.0.3              # Gradient boosting
+joblib==1.3.2               # Model persistence
+pandas==2.1.4               # Data manipulation
+numpy==1.24.4               # Numerical computing
+
+# Security & Authentication
+pyjwt==2.8.0                # JWT token handling
+requests==2.31.0            # HTTP requests
+hashlib                     # Built-in hashing (no install needed)
+
+# System Integration
+win32api==0.0.3             # Windows API access
+win32gui==0.0.2             # Windows GUI interaction
+pywin32==306                # Windows specific functionality
+
+# Configuration & Logging
+pyyaml==6.0.1               # YAML configuration
+colorlog==6.8.0             # Colored logging
+python-dateutil==2.8.2     # Date utilities
+
+# Database & Storage
+sqlite3                     # Built-in database (no install needed)
+pickle                      # Built-in serialization (no install needed)
+
+# UI & Notifications
+plyer==2.1.0                # Cross-platform notifications
+tkinter                     # Built-in GUI (no install needed)
+
+# Development & Testing
+pytest==7.4.4              # Testing framework
+pytest-cov==4.1.0          # Coverage testing
+black==23.12.1              # Code formatting
+flake8==7.0.0               # Code linting
