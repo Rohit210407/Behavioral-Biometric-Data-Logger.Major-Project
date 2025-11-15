@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Behavioral Authentication System - React Frontend with Node.js Backend
 
 This project is a modern implementation of a behavioral authentication system using React.js for the frontend and Node.js for the backend.
@@ -113,3 +114,6 @@ behavior_auth_system/
 3. Database integration (SQLite, PostgreSQL, or MongoDB)
 4. Enhanced security features
 5. Mobile-responsive design
+=======
+# Behavioral-Biometric-Data-Logger.Major-Project
+>>>>>>> eb52c6d08ac9edea526f83b3da53abb548771fe2
